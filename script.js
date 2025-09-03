@@ -20,4 +20,9 @@ document.addEventListener('DOMContentLoaded', function() {
 		prosegui.classList.remove('hidden');
 		prosegui.classList.add('fade-in');
 	}, 2200);
+
+	// Navigazione alla nuova schermata
+	prosegui.addEventListener('click', function() {
+		window.location.href = 'next.html';
+	});
 });

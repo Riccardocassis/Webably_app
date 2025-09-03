@@ -14,13 +14,13 @@ body {
     width: 100vw;
     height: 100vh;
     z-index: 0;
-    background: linear-gradient(180deg, #2d4ca3 0%, #0a1833 100%);
+    background: linear-gradient(180deg, #204099 0%, #011432 83%, #000A19 99%);
 }
 
 .container {
     position: relative;
     z-index: 1;
-    background: linear-gradient(180deg, #14224a 0%, #0a1833 100%);
+    background: linear-gradient(180deg, rgba(20,34,74,0.72) 0%, rgba(10,24,51,0.68) 100%);
     border-radius: 48px;
     box-shadow: 0 0 0 2px #3a5edb, 0 8px 32px 0 rgba(255,255,255,0.18), 0 2px 24px 0 rgba(0,0,0,0.22);
     width: 90vw;
@@ -33,6 +33,9 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    border: 1.5px solid rgba(255,255,255,0.18);
 }
 
 h1 {
@@ -68,6 +71,9 @@ button {
     box-shadow: 0 4px 24px 0 rgba(255,255,255,0.25), 0 2px 8px 0 rgba(0,0,0,0.18);
     font-weight: 500;
     outline: none;
+    backdrop-filter: blur(8px) saturate(140%);
+    -webkit-backdrop-filter: blur(8px) saturate(140%);
+    border: 1.2px solid rgba(255,255,255,0.18);
 }
 
 button:active {
