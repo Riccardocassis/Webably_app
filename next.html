@@ -9,10 +9,19 @@
 <body>
     <div class="bg-gradient"></div>
     <button class="theme-switch" id="themeSwitch">🌙</button>
-    <div class="container">
+    <div class="container" id="mainApp">
         <h1>Schermata 2</h1>
         <p>Questa è la seconda schermata del trainer di accessibilità.</p>
-        <button id="prosegui" onclick="window.location.href='index.html'">Torna alla Home</button>
+        <button id="prosegui">Torna alla Home</button>
+    </div>
+    <div class="loading-bg" id="loadingBg" style="display:none;"></div>
+    <div class="loading-container" id="loadingContainer" style="display:none;">
+        <img src="assets/logoescritta.svg" alt="Logo WebAble" class="loading-logo" style="display:block;margin:0 auto;object-fit:contain;width:360px;max-width:90vw;">
+        <div style="height:80px;"></div>
+        <div class="loading-bar">
+            <div class="loading-bar-progress" id="loadingBar"></div>
+        </div>
+        <div class="loading-text">Caricamento in corso...</div>
     </div>
     <script>
     // Persistenza tema tra pagine
@@ -34,6 +43,25 @@
     window.addEventListener('DOMContentLoaded', () => {
         const saved = localStorage.getItem('theme');
         if(saved) setTheme(saved);
+        // Mostra loading page
+        document.getElementById('mainApp').style.display = 'none';
+        document.getElementById('loadingBg').style.display = '';
+        document.getElementById('loadingContainer').style.display = '';
+        // Loading logic
+        const bar = document.getElementById('loadingBar');
+        let progress = 0;
+        const interval = setInterval(() => {
+            progress += 1;
+            bar.style.width = progress + '%';
+            if(progress >= 100) {
+                clearInterval(interval);
+                setTimeout(() => {
+                    document.getElementById('loadingBg').style.display = 'none';
+                    document.getElementById('loadingContainer').style.display = 'none';
+                    document.getElementById('mainApp').style.display = '';
+                }, 300);
+            }
+        }, 50); // 100*50ms = 5s
     });
     // Microinterazioni 3D
     const card = document.querySelector('.container');
@@ -58,6 +86,11 @@
     button.addEventListener('mouseleave', () => {
         button.style.transform = '';
         button.style.boxShadow = '';
+    });
+    // Navigazione coerente
+    const prosegui = document.getElementById('prosegui');
+    prosegui.addEventListener('click', function() {
+        window.location.href = 'index.html';
     });
     </script>
 </body>
