@@ -4,7 +4,7 @@ body {
     font-family: 'Inter', Arial, sans-serif;
     background: #f4f4f4;
     min-height: 100vh;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .bg-gradient {
@@ -17,25 +17,64 @@ body {
     background: linear-gradient(180deg, #204099 0%, #011432 83%, #000A19 99%);
 }
 
+body.light .bg-gradient {
+    background: linear-gradient(180deg, #b3d6f6 0%, #d6c6f6 100%);
+}
+
+.theme-switch {
+    position: absolute;
+    top: 32px;
+    right: 48px;
+    z-index: 2;
+    background: #234a9b;
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    padding: 8px 24px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    transition: background 0.2s;
+}
+body.light .theme-switch {
+    background: #2ab1e5;
+    color: #563fa1;
+}
+.theme-switch:hover {
+    background: #1a3570;
+}
+body.light .theme-switch:hover {
+    background: #b3e2ff;
+    color: #563fa1;
+}
+
 .container {
     position: relative;
     z-index: 1;
-    background: linear-gradient(180deg, rgba(20,34,74,0.72) 0%, rgba(10,24,51,0.68) 100%);
+    background: linear-gradient(135deg, rgba(20,34,74,0.68) 0%, rgba(10,24,51,0.52) 100%);
     border-radius: 48px;
-    box-shadow: 0 0 0 2px #3a5edb, 0 8px 32px 0 rgba(255,255,255,0.18), 0 2px 24px 0 rgba(0,0,0,0.22);
-    width: 90vw;
-    max-width: 900px;
-    min-height: 520px;
-    margin: 40px auto;
+    box-shadow: 0 16px 64px 0 rgba(255,255,255,0.32), 0 2px 24px 0 rgba(0,0,0,0.22);
+    width: 80vw;
+    max-width: 1200px;
+    min-height: 600px;
+    height: 70vh;
+    margin: 56px auto 67px auto;
     padding: 80px 0 60px 0;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    backdrop-filter: blur(18px) saturate(160%);
-    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
     border: 1.5px solid rgba(255,255,255,0.18);
+    overflow: hidden;
+}
+body.light .container {
+    background: linear-gradient(135deg, rgba(175,229,255,0.48) 0%, rgba(227,207,255,0.38) 100%);
+    box-shadow: 0 16px 64px 0 rgba(255,255,255,0.18), 0 2px 24px 0 rgba(86,67,155,0.08);
+    border: 1.5px solid rgba(255,255,255,0.32);
 }
 
 h1 {
@@ -45,6 +84,10 @@ h1 {
     font-weight: bold;
     letter-spacing: 2px;
     text-shadow: 0 4px 24px rgba(35,74,155,0.25), 0 2px 8px rgba(0,0,0,0.25);
+}
+body.light h1 {
+    color: #563fa1;
+    text-shadow: 0 4px 24px rgba(86,67,155,0.12), 0 2px 8px rgba(175,229,255,0.10);
 }
 
 .webable {
@@ -58,8 +101,12 @@ p {
     font-weight: 500;
     text-shadow: 0 2px 16px rgba(35,74,155,0.18), 0 1px 4px rgba(0,0,0,0.18);
 }
+body.light p {
+    color: #563fa1;
+    text-shadow: 0 2px 16px rgba(86,67,155,0.08), 0 1px 4px rgba(175,229,255,0.08);
+}
 
-button {
+button#prosegui {
     background: #234a9b;
     color: #fff;
     border: none;
@@ -68,23 +115,33 @@ button {
     font-size: 36px;
     cursor: pointer;
     transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 4px 24px 0 rgba(255,255,255,0.25), 0 2px 8px 0 rgba(0,0,0,0.18);
+    box-shadow: 0 12px 48px 0 rgba(255,255,255,0.45), 0 4px 24px 0 rgba(0,0,0,0.18);
     font-weight: 500;
     outline: none;
-    backdrop-filter: blur(8px) saturate(140%);
-    -webkit-backdrop-filter: blur(8px) saturate(140%);
-    border: 1.2px solid rgba(255,255,255,0.18);
+    margin-top: 0;
+    position: relative;
 }
-
-button:active {
+body.light button#prosegui {
+    background: #2ab1e5;
+    color: #fff;
+    box-shadow: 0 12px 48px 0 rgba(175,229,255,0.45), 0 4px 24px 0 rgba(86,67,155,0.18);
+}
+button#prosegui:active {
     transform: scale(0.98);
     box-shadow: 0 2px 8px 0 rgba(255,255,255,0.18), 0 1px 4px 0 rgba(0,0,0,0.12);
 }
-
-button:hover {
+body.light button#prosegui:active {
+    box-shadow: 0 2px 8px 0 rgba(175,229,255,0.18), 0 1px 4px 0 rgba(86,67,155,0.08);
+}
+button#prosegui:hover {
     background: #1a3570;
-    transform: scale(1.04);
-    box-shadow: 0 8px 32px 0 rgba(255,255,255,0.32), 0 2px 16px 0 rgba(0,0,0,0.22);
+    transform: scale(1.06);
+    box-shadow: 0 16px 64px 0 rgba(255,255,255,0.55), 0 8px 32px 0 rgba(0,0,0,0.22);
+}
+body.light button#prosegui:hover {
+    background: #b3d6f6;
+    color: #563fa1;
+    box-shadow: 0 16px 64px 0 rgba(175,229,255,0.55), 0 8px 32px 0 rgba(86,67,155,0.22);
 }
 
 .hidden {
@@ -116,6 +173,7 @@ button:hover {
     .container {
         max-width: 98vw;
         min-height: 320px;
+        height: auto;
         padding: 32px 0 24px 0;
     }
     h1 {
@@ -126,7 +184,7 @@ button:hover {
         font-size: 22px;
         margin-bottom: 32px;
     }
-    button {
+    button#prosegui {
         font-size: 20px;
         padding: 12px 40px;
     }
@@ -137,6 +195,7 @@ button:hover {
         border-radius: 24px;
         padding: 16px 0 12px 0;
         min-height: 180px;
+        height: auto;
     }
     h1 {
         font-size: 24px;
@@ -146,7 +205,7 @@ button:hover {
         font-size: 14px;
         margin-bottom: 18px;
     }
-    button {
+    button#prosegui {
         font-size: 14px;
         padding: 8px 18px;
     }
