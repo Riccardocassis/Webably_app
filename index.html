@@ -7,16 +7,27 @@
     <link rel="stylesheet" href="stile.css">
 </head>
 <body>
-    <div class="bg-gradient"></div>
-    <button class="theme-switch" id="themeSwitch">🌙</button>
-    <div class="container">
-        <h1 id="ciao" class="hidden">Ciao!</h1>
-        <p id="benvenuto" class="hidden">Benvenuto su <span class="webable">WebAble</span></p>
-        <button id="prosegui" class="hidden">Prosegui</button>
+    <!-- Loading page integrata in index.html -->
+    <div class="loading-bg" id="loadingBg"></div>
+    <div class="loading-container" id="loadingContainer">
+        <img src="assets/logoescritta.svg" alt="Logo WebAble" class="loading-logo" style="display:block;margin:0 auto;object-fit:contain;width:360px;max-width:90vw;">
+        <div style="height:80px;"></div>
+        <div class="loading-bar">
+            <div class="loading-bar-progress" id="loadingBar"></div>
+        </div>
+        <div class="loading-text">Caricamento in corso...</div>
+    </div>
+    <div id="mainApp" style="display:none;">
+        <button class="theme-switch" id="themeSwitch">🌙</button>
+        <div class="container">
+            <h1 id="ciao" class="hidden">Ciao!</h1>
+            <p id="benvenuto" class="hidden">Benvenuto su <span class="webable">WebAble</span></p>
+            <button id="prosegui" class="hidden">Prosegui</button>
+        </div>
     </div>
     <script src="script.js"></script>
     <script>
-    // Persistenza tema tra pagine
+    // Gestione tema coerente
     function setTheme(mode) {
         if(mode === 'light') {
             document.body.classList.add('light');
@@ -36,30 +47,24 @@
         const saved = localStorage.getItem('theme');
         if(saved) setTheme(saved);
     });
-    // Microinterazioni 3D
-    const card = document.querySelector('.container');
-    const button = document.getElementById('prosegui');
-    card.addEventListener('mousemove', e => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const rotateX = -(y - centerY) / 60;
-        const rotateY = (x - centerX) / 60;
-        card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-    });
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg)';
-    });
-    button.addEventListener('mousemove', e => {
-        button.style.transform = 'scale(1.08) translateY(-2px)';
-        button.style.boxShadow = '0 20px 64px 0 rgba(255,255,255,0.32), 0 4px 24px 0 rgba(32,64,153,0.22)';
-    });
-    button.addEventListener('mouseleave', () => {
-        button.style.transform = '';
-        button.style.boxShadow = '';
-    });
+    // Loading logic
+    const loadingBg = document.getElementById('loadingBg');
+    const loadingContainer = document.getElementById('loadingContainer');
+    const mainApp = document.getElementById('mainApp');
+    const bar = document.getElementById('loadingBar');
+    let progress = 0;
+    const interval = setInterval(() => {
+        progress += 1;
+        bar.style.width = progress + '%';
+        if(progress >= 100) {
+            clearInterval(interval);
+            setTimeout(() => {
+                loadingBg.style.display = 'none';
+                loadingContainer.style.display = 'none';
+                mainApp.style.display = '';
+            }, 300);
+        }
+    }, 50); // 100*50ms = 5s
     </script>
 </body>
 </html>
