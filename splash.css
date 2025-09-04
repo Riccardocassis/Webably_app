@@ -1,3 +1,4 @@
+
 body {
     margin: 0;
     padding: 0;
@@ -9,31 +10,51 @@ body {
     justify-content: center;
     font-family: 'Segoe UI', Arial, sans-serif;
 }
+
 .splash-container {
-    background: rgba(44, 74, 146, 0.45);
-    border-radius: 40px;
-    box-shadow: 0 4px 32px 0 rgba(44, 74, 146, 0.15);
-    padding: 48px 32px 40px 32px;
-    max-width: 700px;
-    width: 90vw;
+    background: rgba(44, 74, 146, 0.30);
+    border-radius: 56px;
+    box-shadow: 0 24px 80px 0 rgba(44, 74, 146, 0.45), 0 4px 32px 0 rgba(44,74,146,0.22);
+    padding: 80px 64px 72px 64px;
+    max-width: 1200px;
+    width: 98vw;
     margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
+    transition: box-shadow 0.3s cubic-bezier(.4,2,.3,1), background 0.3s;
+    backdrop-filter: blur(32px) saturate(180%);
+    -webkit-backdrop-filter: blur(32px) saturate(180%);
+    border: 2.5px solid rgba(255,255,255,0.18);
+    outline: 2px solid #2bb6ea55;
+    outline-offset: 0px;
+}
+.splash-container:hover {
+    box-shadow: 0 32px 120px 0 rgba(44, 74, 146, 0.55), 0 8px 48px 0 #2bb6ea55;
+    background: rgba(44, 74, 146, 0.38);
+    outline: 3px solid #2bb6ea99;
 }
 .splash-header {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 16px;
+    margin-bottom: 24px;
 }
 .ciao {
     color: #fff;
-    font-size: 4rem;
-    font-weight: 700;
+    font-size: 5rem;
+    font-weight: 800;
     margin: 0;
+    letter-spacing: 2px;
+    transition: text-shadow 0.3s, color 0.3s;
+    text-shadow: 0 4px 24px #2bb6ea80, 0 1px 0 #fff2;
+    cursor: pointer;
+}
+.ciao:hover {
+    color: #2bb6ea;
+    text-shadow: 0 8px 32px #2bb6ea, 0 2px 0 #fff4;
 }
 .mode-toggle {
     background: rgba(44, 74, 146, 0.25);
@@ -44,42 +65,66 @@ body {
     font-size: 1rem;
     cursor: pointer;
     margin-top: 8px;
-    transition: background 0.2s;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px 0 rgba(44, 74, 146, 0.10);
 }
 .mode-toggle:hover {
     background: #2bb6ea;
+    box-shadow: 0 4px 16px 0 #2bb6ea55;
 }
 .splash-logo {
-    width: 160px;
-    height: 160px;
-    margin: 24px 0 32px 0;
+    width: 240px;
+    height: 240px;
+    margin: 32px 0 40px 0;
     display: block;
+    filter: drop-shadow(0 8px 32px #2bb6ea88);
+    transition: filter 0.3s;
+}
+.splash-logo:hover {
+    filter: drop-shadow(0 16px 48px #2bb6ea);
 }
 .benvenuto {
     color: #fff;
-    font-size: 2.5rem;
-    font-weight: 600;
+    font-size: 3rem;
+    font-weight: 700;
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 48px;
+    letter-spacing: 1px;
+    transition: text-shadow 0.3s, color 0.3s;
+    text-shadow: 0 2px 16px #2bb6ea55;
+    cursor: pointer;
+}
+.benvenuto:hover {
+    color: #2bb6ea;
+    text-shadow: 0 4px 32px #2bb6ea, 0 2px 0 #fff4;
 }
 .splash-buttons {
     display: flex;
-    gap: 40px;
+    gap: 56px;
     justify-content: center;
 }
 .splash-btn {
     background: #3a5bbd;
     color: #fff;
     border: none;
-    border-radius: 24px;
-    padding: 16px 40px;
-    font-size: 1.3rem;
-    font-weight: 500;
+    border-radius: 48px;
+    padding: 28px 80px;
+    font-size: 2.8rem;
+    font-weight: 600;
     cursor: pointer;
-    box-shadow: 0 2px 8px 0 rgba(44, 74, 146, 0.10);
-    transition: background 0.2s, color 0.2s;
+    box-shadow: 0 8px 32px 0 #2bb6ea55, 0 2px 8px 0 rgba(44, 74, 146, 0.10);
+    transition: background 0.2s, color 0.2s, box-shadow 0.3s, transform 0.2s;
+    outline: none;
+    border: 2px solid #4a7bbd;
+    position: relative;
+}
+.splash-btn:active {
+    transform: scale(0.97);
+    box-shadow: 0 2px 8px 0 #2bb6ea33;
 }
 .splash-btn:hover {
     background: #2bb6ea;
     color: #233a7b;
+    box-shadow: 0 16px 48px 0 #2bb6ea99, 0 4px 16px 0 #4a7bbd55;
+    border-color: #2bb6ea;
 }
