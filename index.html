@@ -1,41 +1,19 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WebAble</title>
-    <link rel="stylesheet" href="stile.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="bg-gradient"></div>
-    <button class="theme-switch" id="themeSwitch">🌙</button>
-    <div class="container">
-        <h1 id="ciao" class="hidden">Ciao!</h1>
-        <p id="benvenuto" class="hidden">Benvenuto su <span class="webable">WebAble</span></p>
-        <button id="prosegui" class="hidden">Prosegui</button>
+    <img src="assets/logoescritta.svg" alt="WebAble Logo" class="logo">
+    
+    <div class="loading-text">Caricamento...</div>
+    <div class="loading-bar-bg">
+        <div class="loading-bar" id="loadingBar"></div>
     </div>
-    <script src="script.js"></script>
-    <script>
-    // Persistenza tema tra pagine
-    function setTheme(mode) {
-        if(mode === 'light') {
-            document.body.classList.add('light');
-            themeSwitch.textContent = '☀️';
-        } else {
-            document.body.classList.remove('light');
-            themeSwitch.textContent = '🌙';
-        }
-        localStorage.setItem('theme', mode);
-    }
-    const themeSwitch = document.getElementById('themeSwitch');
-    themeSwitch.addEventListener('click', () => {
-        const mode = document.body.classList.contains('light') ? 'dark' : 'light';
-        setTheme(mode);
-    });
-    window.addEventListener('DOMContentLoaded', () => {
-        const saved = localStorage.getItem('theme');
-        if(saved) setTheme(saved);
-    });
-    </script>
+    <script src="loading.js"></script>
 </body>
 </html>
