@@ -1,0 +1,85 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(180deg, #233a7b 0%, #0a1a2f 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+.splash-container {
+    background: rgba(44, 74, 146, 0.45);
+    border-radius: 40px;
+    box-shadow: 0 4px 32px 0 rgba(44, 74, 146, 0.15);
+    padding: 48px 32px 40px 32px;
+    max-width: 700px;
+    width: 90vw;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.splash-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+.ciao {
+    color: #fff;
+    font-size: 4rem;
+    font-weight: 700;
+    margin: 0;
+}
+.mode-toggle {
+    background: rgba(44, 74, 146, 0.25);
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 24px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s;
+}
+.mode-toggle:hover {
+    background: #2bb6ea;
+}
+.splash-logo {
+    width: 160px;
+    height: 160px;
+    margin: 24px 0 32px 0;
+    display: block;
+}
+.benvenuto {
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.splash-buttons {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+}
+.splash-btn {
+    background: #3a5bbd;
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    padding: 16px 40px;
+    font-size: 1.3rem;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 2px 8px 0 rgba(44, 74, 146, 0.10);
+    transition: background 0.2s, color 0.2s;
+}
+.splash-btn:hover {
+    background: #2bb6ea;
+    color: #233a7b;
+}
