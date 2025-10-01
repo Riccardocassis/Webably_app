@@ -1,3 +1,41 @@
+@media (max-width: 700px) {
+    .splash-container {
+        max-width: 98vw;
+        width: 98vw;
+        padding: 32px 8px 32px 8px;
+        border-radius: 32px;
+    }
+    .splash-header {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 8px;
+    }
+    .ciao {
+        font-size: 2.2rem;
+        margin-bottom: 12px;
+    }
+    .splash-logo {
+        width: 120px;
+        height: 120px;
+        margin: 16px 0 24px 0;
+    }
+    .benvenuto {
+        font-size: 1.3rem;
+        margin-bottom: 24px;
+    }
+    .splash-buttons {
+        flex-direction: column;
+        gap: 18px;
+        width: 100%;
+        align-items: center;
+    }
+    .splash-btn {
+        font-size: 1.2rem;
+        padding: 12px 0;
+        width: 90vw;
+        border-radius: 32px;
+    }
+}
 
 body {
     margin: 0;
