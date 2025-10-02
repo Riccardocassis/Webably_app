@@ -9,8 +9,8 @@ const timer = setInterval(() => {
     if (progress >= 100) {
         progress = 100;
         clearInterval(timer);
-        // Dopo il caricamento, vai alla splash page
-        window.location.href = 'splash.html';
+    // Dopo il caricamento, vai al form di registrazione
+    window.location.href = 'registrazione.html';
     }
     loadingBar.style.width = progress + '%';
 }, interval);

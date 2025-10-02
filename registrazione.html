@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrazione MVP - WebAble</title>
+    <link rel="stylesheet" href="registrazione.css">
+</head>
+<body>
+    <div class="reg-container">
+        <h1 class="reg-title">Presto saremo disponibili!</h1>
+    <p class="reg-desc">Tieniti pronto che arriviamo! 😎</p>
+        <form class="reg-form">
+            <input type="text" name="nome" placeholder="Nome" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="note" placeholder="Note aggiuntive" rows="3"></textarea>
+            <button type="submit" class="reg-btn">Richiedi accesso beta</button>
+        </form>
+        <div class="reg-success" style="display:none;">Grazie! Ti contatteremo per la beta appena sarà disponibile.</div>
+    </div>
+        <script src="registrazione.js"></script>
+        <script>
+            // Se la pagina viene ricaricata, torna alla loading page
+            if (performance.navigation.type === 1) {
+                window.location.href = 'index.html';
+            }
+        </script>
+</body>
+</html>
