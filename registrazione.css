@@ -172,9 +172,9 @@ body {
     .reg-container {
         padding: 24px 4vw 24px 4vw;
         border-radius: 16px;
-        max-width: 98vw;
-        width: 98vw;
-        margin: 32px auto 32px auto;
+        max-width: 94vw;
+        width: 94vw;
+        margin: 48px auto 48px auto;
         box-sizing: border-box;
         min-height: 340px;
         display: flex;
